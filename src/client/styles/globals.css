@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #f5efe5;
+  --color-ink: #1f2933;
+  --color-coral: #da6a4e;
+  --color-teal: #1f766e;
+  --color-sand: #fffaf3;
+}
+
+:root {
+  color: #1f2933;
+  background: #f5efe5;
+  font-family:
+    "Instrument Sans",
+    "Avenir Next",
+    "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+code {
+  font-family:
+    "SFMono-Regular",
+    "SF Mono",
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    monospace;
+}
+
