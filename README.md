@@ -18,6 +18,8 @@ npm run typecheck
 npm run build
 ```
 
+The scaffold includes a local `.npmrc` with `include=dev`, so installs still pull `vite`, `typescript`, and `esbuild` even when a sandbox exports `NODE_ENV=production`.
+
 ## Build Output
 
 `npm run build` produces a deployable `dist/` directory:
@@ -44,6 +46,8 @@ dist/
 }
 ```
 
+You do not need to hand-author `deploy.json` for the default scaffold. It is emitted by `build-server.ts` during `npm run build`.
+
 ## Project Structure
 
 ```text
@@ -58,4 +62,3 @@ src/
 ```
 
 The example page includes a client-side API call to `/api/example` and a few Radix UI primitives so Agents have a working baseline to extend.
-
