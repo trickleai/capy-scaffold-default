@@ -2,6 +2,8 @@
 
 Default full-stack scaffold for the Capy app platform.
 
+This scaffold is intended to be published from `https://github.com/trickleai/capy-scaffold-default.git`.
+
 ## Stack
 
 - Vite + React for the client
