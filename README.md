@@ -29,10 +29,14 @@ The scaffold includes a local `.npmrc` with `include=dev`, so installs still pul
 ```text
 dist/
   client/
+    index.html
   server/
     index.js
   deploy.json
 ```
+
+The default scaffold intentionally inlines the compiled client JS and CSS into `dist/client/index.html`.
+This avoids blank previews on the current Workers for Platforms setup when asset responses are served with an incorrect MIME type for module scripts or stylesheets.
 
 `deploy.json` is generated automatically and matches the platform deploy contract:
 
