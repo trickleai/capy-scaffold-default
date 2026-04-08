@@ -16,6 +16,7 @@ This scaffold is intended to be published from `https://github.com/trickleai/cap
 ```bash
 npm install
 npm run dev
+npm run db:generate
 npm run typecheck
 npm run build
 ```
@@ -30,6 +31,9 @@ The scaffold includes a local `.npmrc` with `include=dev`, so installs still pul
 dist/
   client/
     index.html
+  migrations/
+    0000_initial.sql
+    meta/_journal.json
   server/
     index.js
   deploy.json
@@ -48,11 +52,32 @@ This avoids blank previews on the current Workers for Platforms setup when asset
   },
   "assets": {
     "directory": "client"
+  },
+  "database": {
+    "migrations": "migrations"
   }
 }
 ```
 
-You do not need to hand-author `deploy.json` for the default scaffold. It is emitted by `build-server.ts` during `npm run build`.
+You do not need to hand-author `deploy.json` for the default scaffold. It is emitted by `build-server.ts` during `npm run build`, and the build also copies `migrations/` into `dist/migrations/`.
+
+## Database Workflow
+
+The scaffold includes:
+
+- `drizzle.config.ts`
+- `src/server/db/schema.ts`
+- `src/server/db/index.ts`
+- starter migrations under `migrations/`
+
+After changing the schema, run:
+
+```bash
+npm run db:generate
+npm run build
+```
+
+The platform deploy pipeline reads `dist/migrations/meta/_journal.json`, applies only new migrations, and injects a `DB` binding into the Worker at deploy time.
 
 ## Project Structure
 
@@ -64,7 +89,8 @@ src/
     pages/
     styles/
   server/
+    db/
     routes/
 ```
 
-The example page includes a client-side API call to `/api/example` and a few Radix UI primitives so Agents have a working baseline to extend.
+The example page includes a client-side API call to `/api/example`, and the example route now reports basic D1-backed data so Agents have a working baseline to extend.

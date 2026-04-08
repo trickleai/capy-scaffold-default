@@ -2,6 +2,12 @@ export interface ExampleApiResponse {
   message: string;
   runtime: string;
   generatedAt: string;
+  database: {
+    configured: boolean;
+    driver: string | null;
+    todoCount: number;
+    sampleTitles: string[];
+  };
   tips: string[];
 }
 
@@ -18,4 +24,3 @@ export async function fetchExampleMessage(): Promise<ExampleApiResponse> {
 
   return (await response.json()) as ExampleApiResponse;
 }
-

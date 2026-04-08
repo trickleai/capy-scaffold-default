@@ -70,6 +70,11 @@ export function Home() {
                 {" "}
                 Workers for Platforms
               </p>
+              <p>
+                <span className="font-semibold text-white">database</span>:
+                {" "}
+                <code>DB</code> via Cloudflare D1 + Drizzle
+              </p>
             </div>
           </div>
         </section>
@@ -116,7 +121,10 @@ export function Home() {
                 Replace the marketing-style client page with your product UI.
               </li>
               <li className="rounded-[1.25rem] bg-sand px-4 py-3">
-                Run <code>npm run build</code> to emit <code>dist/deploy.json</code>.
+                Update <code>src/server/db/schema.ts</code>, then run <code>npm run db:generate</code>.
+              </li>
+              <li className="rounded-[1.25rem] bg-sand px-4 py-3">
+                Run <code>npm run build</code> to emit <code>dist/deploy.json</code> and <code>dist/migrations</code>.
               </li>
             </ul>
           </article>
@@ -125,4 +133,3 @@ export function Home() {
     </main>
   );
 }
-

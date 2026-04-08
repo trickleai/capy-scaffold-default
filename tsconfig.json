@@ -15,13 +15,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["node"]
+    "types": ["node", "@cloudflare/workers-types"]
   },
   "include": [
     "src",
     "build-server.ts",
+    "drizzle.config.ts",
     "tailwind.config.ts",
     "vite.config.ts"
   ]
 }
-

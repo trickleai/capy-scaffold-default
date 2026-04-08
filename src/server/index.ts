@@ -3,12 +3,13 @@ import { cors } from "hono/cors";
 
 import exampleRoutes from "./routes/example";
 
-interface AssetFetcher {
+export interface AssetFetcher {
   fetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response>;
 }
 
-type Bindings = {
+export type Bindings = {
   ASSETS?: AssetFetcher;
+  DB?: D1Database;
 };
 
 const app = new Hono<{ Bindings: Bindings }>();
@@ -25,4 +26,3 @@ app.get("*", async (c) => {
 });
 
 export default app;
-
